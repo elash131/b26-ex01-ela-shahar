@@ -25,11 +25,13 @@
 - Sort output by decimal value descending, but keep the original binary string beside each decimal number.
 - Required statistics:
   - average of the 4 decimal values
-  - longest run of identical bits, with one example number that contains that run
+  - longest run of identical bits, with the binary example output formatted exactly as required by the samples
   - total count of `1` bits across all 4 numbers
   - number with the most transitions between `0` and `1`
   - how many numbers are divisible by 4
 - Tie rule for transitions: if several numbers share the max transition count, print the smallest decimal value among them.
+- The section wording says to print one example for the longest run, but sample `D` prints all tied binary numbers. Follow the sample behavior.
+- The divisible-by-4 sample with 3 values is printed in ascending decimal order inside the parentheses. Match that behavior.
 - Output format is English and must match the sample style exactly.
 
 ### Task 1: Prepare The Project Shell
@@ -76,11 +78,11 @@
 
 - [ ] Add a method for average and format later with 2 digits after the decimal point.
 - [ ] Add a method for longest identical-bit run across all 4 strings.
-- [ ] When reporting the longest run, return both the run length and one example binary string that contains it.
+- [ ] When reporting the longest run, collect every binary string that shares the maximum run length so the sample-`D` behavior can be reproduced.
 - [ ] Add a method that counts all `1` bits across the 4 strings.
 - [ ] Add a method that counts transitions per number.
 - [ ] Apply the tie rule for transitions by choosing the smallest decimal number among tied candidates.
-- [ ] Add a method that counts how many decimal values are divisible by 4.
+- [ ] Add a method that counts how many decimal values are divisible by 4 and returns the matching binary strings in ascending decimal order for output.
 - [ ] Manually verify the lecturer samples before formatting output.
 - [ ] Commit.
 
@@ -93,9 +95,11 @@
 - [ ] Format the descending list in the exact sample style:
   - `Decimal numbers in descending order: 120 (1111000), ...`
 - [ ] Format average with exactly 2 digits after the decimal point.
-- [ ] Format the longest run, transitions line, and divisible-by-4 line exactly like the PDF examples.
+- [ ] Format the longest run line so it prints one binary value or all tied binary values exactly as required by the samples.
+- [ ] Format the transitions line and divisible-by-4 line exactly like the PDF examples.
 - [ ] Avoid extra spaces, extra blank lines, or different label text.
 - [ ] Run the 4 mandatory sample inputs from the PDF and compare line by line.
+- [ ] Run at least 1 additional custom input of your own and save its screenshot too.
 - [ ] Capture screenshots and paste them into `Ex01_ScreenShots.doc`.
 - [ ] Commit.
 
@@ -105,6 +109,7 @@
 - [ ] `0101010, 1100111, 1111111, 0001000`
 - [ ] `1001100, 1110111, 0000000, 0100100`
 - [ ] `1010101, 1010101, 0101010, 0101010`
+- [ ] 1 additional custom run of your choice that demonstrates another edge case
 
 ## Done Criteria
 
@@ -112,4 +117,5 @@
 - Invalid input loops until valid input is provided.
 - Binary conversion is manual.
 - All 4 sample runs match the lecturer output format.
+- At least 1 additional custom run example was captured.
 - Screenshots were added to `Ex01_ScreenShots.doc`.

@@ -8,7 +8,8 @@ This document turns the lecturer coding standards into direct working rules.
 
 - Use meaningful names, even if they are long.
 - Use `camelCase`.
-- Do not use meaningless short names such as `i`, `j`, or similar unless they are truly justified.
+- Indices with no special meaning may be named `i`, `j`, and similar when that is the natural choice.
+- Avoid meaningless short names unless they are the natural loop / index variables with no special meaning.
 
 Examples:
 
@@ -43,7 +44,7 @@ Examples:
 ### Naming
 
 - Use meaningful names.
-- Do not add the prefix `d_` to method names.
+- Do not add underscores to method names.
 - Use PascalCase for public and protected methods.
 - Private methods should start with a lower-case first letter.
 
@@ -175,11 +176,19 @@ else
 - Use spaces around operators.
 - Use spaces after commas in parameter lists and argument lists.
 - Do not put a space before method parentheses or method-call parentheses.
+- The source slide examples are inconsistent about control-statement parentheses:
+  - one slide shows `if (boolVar)` and `for (int j = 0; ...)`
+  - another slide shows `if(x == 5)` as the good example
+- Because of that inconsistency, treat the non-negotiable part as:
+  - keep spaces around operators
+  - keep spaces after commas
+  - do not add a space before method-call parentheses
+  - preserve one consistent control-statement style within the file / repository instead of reformatting back and forth
 
 Good:
 
 - `x = t + 5;`
-- `if (x == 5)`
+- `if(x == 5)`
 - `Console.WriteLine("Hello {0} and {1}", name1, name2);`
 - `DoSomeThing(5, 4);`
 

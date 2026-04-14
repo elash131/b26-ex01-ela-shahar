@@ -26,6 +26,9 @@ Examples:
 - Boolean names should read as positive assertions.
 - Good: `v_IsValidInput`, `v_HasCharacters`, `v_ShouldPrintSummary`
 - Bad: `v_IsInvalidInput`, `v_IsEmpty`, `v_HasNoCharacters`
+- When introducing a local boolean control variable, initialize it to `true`.
+- Good: `bool v_ShouldContinue = true;`
+- Bad: `bool v_IsDone = false;`
 - When you need the negative meaning, pass `!variable` instead of creating a negative boolean literal or a negative boolean name.
 - Prefer named boolean constants over raw `true` / `false` when passing boolean parameters.
 
@@ -143,11 +146,14 @@ Example:
 
 - Prefer direct boolean assignment.
 - Prefer positive boolean naming and negate with `!` at the usage site when needed.
+- Prefer positive boolean initialization and then use `!` only where the negative case is needed.
 
 Good:
 
 ```csharp
 isOldMan = age > 50;
+bool v_ShouldContinue = true;
+
 if(!v_HasCharacters)
 {
 	Console.WriteLine("Input cannot be empty.");
@@ -165,6 +171,8 @@ else
 {
 	isOldMan = false;
 }
+
+bool v_IsDone = false;
 
 if(v_IsEmpty)
 {

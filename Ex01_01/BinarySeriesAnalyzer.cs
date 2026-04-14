@@ -237,6 +237,7 @@ namespace Ex01_01
 					i_BinaryNumberInfos[binaryNumberIndex].TransitionCount == binaryNumberWithMostTransitions.TransitionCount &&
 					i_BinaryNumberInfos[binaryNumberIndex].DecimalValue < binaryNumberWithMostTransitions.DecimalValue)
 				{
+					// Course rule: for equal transition counts, choose the smaller decimal value.
 					binaryNumberWithMostTransitions = i_BinaryNumberInfos[binaryNumberIndex];
 				}
 			}
@@ -262,6 +263,7 @@ namespace Ex01_01
 			string[] binaryRepresentationsDivisibleByFour = new string[divisibleByFourCount];
 			int divisibleByFourIndex = divisibleByFourCount - 1;
 
+			// The source array is descending, so fill from the end to produce ascending decimal order.
 			for(int binaryNumberIndex = 0;
 				binaryNumberIndex < i_BinaryNumberInfosSortedByDescendingDecimalValue.Length;
 				binaryNumberIndex++)

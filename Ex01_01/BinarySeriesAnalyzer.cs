@@ -6,28 +6,19 @@ namespace Ex01_01
 	{
 		public BinarySeriesReport CreateBinarySeriesReport(string[] i_BinaryNumbers)
 		{
-			BinarySeriesReport binarySeriesReport;
-			BinaryNumberInfo[] binaryNumberInfos;
-			BinaryNumberInfo[] binaryNumberInfosSortedByDescendingDecimalValue;
-			BinaryNumberInfo binaryNumberWithMostTransitions;
-			string[] binaryRepresentationsWithLongestBitSequence;
-			string[] binaryRepresentationsDivisibleByFour;
-			int longestBitSequenceLength;
-			int totalOneBits;
-			double averageDecimalValue;
-
-			binaryNumberInfos = createBinaryNumberInfos(i_BinaryNumbers);
-			binaryNumberInfosSortedByDescendingDecimalValue = getBinaryNumberInfosSortedByDescendingDecimalValue(binaryNumberInfos);
-			longestBitSequenceLength = getLongestBitSequenceLength(binaryNumberInfosSortedByDescendingDecimalValue);
-			binaryRepresentationsWithLongestBitSequence = getBinaryRepresentationsWithLongestBitSequence(
+			BinaryNumberInfo[] binaryNumberInfos = createBinaryNumberInfos(i_BinaryNumbers);
+			BinaryNumberInfo[] binaryNumberInfosSortedByDescendingDecimalValue =
+				getBinaryNumberInfosSortedByDescendingDecimalValue(binaryNumberInfos);
+			int longestBitSequenceLength = getLongestBitSequenceLength(binaryNumberInfosSortedByDescendingDecimalValue);
+			string[] binaryRepresentationsWithLongestBitSequence = getBinaryRepresentationsWithLongestBitSequence(
 				binaryNumberInfosSortedByDescendingDecimalValue,
 				longestBitSequenceLength);
-			totalOneBits = getTotalOneBits(binaryNumberInfos);
-			binaryNumberWithMostTransitions = getBinaryNumberWithMostTransitions(binaryNumberInfos);
-			binaryRepresentationsDivisibleByFour = getBinaryRepresentationsDivisibleByFourInAscendingDecimalOrder(
+			int totalOneBits = getTotalOneBits(binaryNumberInfos);
+			BinaryNumberInfo binaryNumberWithMostTransitions = getBinaryNumberWithMostTransitions(binaryNumberInfos);
+			string[] binaryRepresentationsDivisibleByFour = getBinaryRepresentationsDivisibleByFourInAscendingDecimalOrder(
 				binaryNumberInfosSortedByDescendingDecimalValue);
-			averageDecimalValue = getAverageDecimalValue(binaryNumberInfos);
-			binarySeriesReport = new BinarySeriesReport(
+			double averageDecimalValue = getAverageDecimalValue(binaryNumberInfos);
+			BinarySeriesReport binarySeriesReport = new BinarySeriesReport(
 				binaryNumberInfosSortedByDescendingDecimalValue,
 				averageDecimalValue,
 				longestBitSequenceLength,
@@ -41,12 +32,9 @@ namespace Ex01_01
 
 		private BinaryNumberInfo[] createBinaryNumberInfos(string[] i_BinaryNumbers)
 		{
-			BinaryNumberInfo[] binaryNumberInfos;
-			int binaryNumberIndex;
+			BinaryNumberInfo[] binaryNumberInfos = new BinaryNumberInfo[i_BinaryNumbers.Length];
 
-			binaryNumberInfos = new BinaryNumberInfo[i_BinaryNumbers.Length];
-
-			for(binaryNumberIndex = 0; binaryNumberIndex < i_BinaryNumbers.Length; binaryNumberIndex++)
+			for(int binaryNumberIndex = 0; binaryNumberIndex < i_BinaryNumbers.Length; binaryNumberIndex++)
 			{
 				binaryNumberInfos[binaryNumberIndex] = createBinaryNumberInfo(i_BinaryNumbers[binaryNumberIndex]);
 			}
@@ -56,17 +44,11 @@ namespace Ex01_01
 
 		private BinaryNumberInfo createBinaryNumberInfo(string i_BinaryRepresentation)
 		{
-			BinaryNumberInfo binaryNumberInfo;
-			int decimalValue;
-			int longestBitSequenceLength;
-			int oneBitsCount;
-			int transitionCount;
-
-			decimalValue = convertBinaryStringToDecimal(i_BinaryRepresentation);
-			longestBitSequenceLength = calculateLongestIdenticalBitSequenceLength(i_BinaryRepresentation);
-			oneBitsCount = countOneBits(i_BinaryRepresentation);
-			transitionCount = countTransitionsBetweenAdjacentBits(i_BinaryRepresentation);
-			binaryNumberInfo = new BinaryNumberInfo(
+			int decimalValue = convertBinaryStringToDecimal(i_BinaryRepresentation);
+			int longestBitSequenceLength = calculateLongestIdenticalBitSequenceLength(i_BinaryRepresentation);
+			int oneBitsCount = countOneBits(i_BinaryRepresentation);
+			int transitionCount = countTransitionsBetweenAdjacentBits(i_BinaryRepresentation);
+			BinaryNumberInfo binaryNumberInfo = new BinaryNumberInfo(
 				i_BinaryRepresentation,
 				decimalValue,
 				longestBitSequenceLength,
@@ -78,12 +60,9 @@ namespace Ex01_01
 
 		private int convertBinaryStringToDecimal(string i_BinaryRepresentation)
 		{
-			int decimalValue;
-			int binaryDigitIndex;
+			int decimalValue = 0;
 
-			decimalValue = 0;
-
-			for(binaryDigitIndex = 0; binaryDigitIndex < i_BinaryRepresentation.Length; binaryDigitIndex++)
+			for(int binaryDigitIndex = 0; binaryDigitIndex < i_BinaryRepresentation.Length; binaryDigitIndex++)
 			{
 				decimalValue *= 2;
 				decimalValue += i_BinaryRepresentation[binaryDigitIndex] - '0';
@@ -94,14 +73,10 @@ namespace Ex01_01
 
 		private int calculateLongestIdenticalBitSequenceLength(string i_BinaryRepresentation)
 		{
-			int longestBitSequenceLength;
-			int currentBitSequenceLength;
-			int binaryDigitIndex;
+			int longestBitSequenceLength = 0;
+			int currentBitSequenceLength = 0;
 
-			longestBitSequenceLength = 0;
-			currentBitSequenceLength = 0;
-
-			for(binaryDigitIndex = 0; binaryDigitIndex < i_BinaryRepresentation.Length; binaryDigitIndex++)
+			for(int binaryDigitIndex = 0; binaryDigitIndex < i_BinaryRepresentation.Length; binaryDigitIndex++)
 			{
 				if(binaryDigitIndex == 0 || i_BinaryRepresentation[binaryDigitIndex] == i_BinaryRepresentation[binaryDigitIndex - 1])
 				{
@@ -120,12 +95,9 @@ namespace Ex01_01
 
 		private int countOneBits(string i_BinaryRepresentation)
 		{
-			int oneBitsCount;
-			int binaryDigitIndex;
+			int oneBitsCount = 0;
 
-			oneBitsCount = 0;
-
-			for(binaryDigitIndex = 0; binaryDigitIndex < i_BinaryRepresentation.Length; binaryDigitIndex++)
+			for(int binaryDigitIndex = 0; binaryDigitIndex < i_BinaryRepresentation.Length; binaryDigitIndex++)
 			{
 				if(i_BinaryRepresentation[binaryDigitIndex] == '1')
 				{
@@ -138,12 +110,9 @@ namespace Ex01_01
 
 		private int countTransitionsBetweenAdjacentBits(string i_BinaryRepresentation)
 		{
-			int transitionCount;
-			int binaryDigitIndex;
+			int transitionCount = 0;
 
-			transitionCount = 0;
-
-			for(binaryDigitIndex = 1; binaryDigitIndex < i_BinaryRepresentation.Length; binaryDigitIndex++)
+			for(int binaryDigitIndex = 1; binaryDigitIndex < i_BinaryRepresentation.Length; binaryDigitIndex++)
 			{
 				if(i_BinaryRepresentation[binaryDigitIndex] != i_BinaryRepresentation[binaryDigitIndex - 1])
 				{
@@ -156,15 +125,14 @@ namespace Ex01_01
 
 		private BinaryNumberInfo[] getBinaryNumberInfosSortedByDescendingDecimalValue(BinaryNumberInfo[] i_BinaryNumberInfos)
 		{
-			BinaryNumberInfo[] binaryNumberInfosSortedByDescendingDecimalValue;
-			int outerIndex;
-			int innerIndex;
+			BinaryNumberInfo[] binaryNumberInfosSortedByDescendingDecimalValue =
+				(BinaryNumberInfo[])i_BinaryNumberInfos.Clone();
 
-			binaryNumberInfosSortedByDescendingDecimalValue = (BinaryNumberInfo[])i_BinaryNumberInfos.Clone();
-
-			for(outerIndex = 0; outerIndex < binaryNumberInfosSortedByDescendingDecimalValue.Length - 1; outerIndex++)
+			for(int outerIndex = 0; outerIndex < binaryNumberInfosSortedByDescendingDecimalValue.Length - 1; outerIndex++)
 			{
-				for(innerIndex = outerIndex + 1; innerIndex < binaryNumberInfosSortedByDescendingDecimalValue.Length; innerIndex++)
+				for(int innerIndex = outerIndex + 1;
+					innerIndex < binaryNumberInfosSortedByDescendingDecimalValue.Length;
+					innerIndex++)
 				{
 					if(binaryNumberInfosSortedByDescendingDecimalValue[innerIndex].DecimalValue >
 						binaryNumberInfosSortedByDescendingDecimalValue[outerIndex].DecimalValue)
@@ -185,21 +153,19 @@ namespace Ex01_01
 			int i_FirstBinaryNumberInfoIndex,
 			int i_SecondBinaryNumberInfoIndex)
 		{
-			BinaryNumberInfo currentBinaryNumberInfo;
+			BinaryNumberInfo currentBinaryNumberInfo = io_BinaryNumberInfos[i_FirstBinaryNumberInfoIndex];
 
-			currentBinaryNumberInfo = io_BinaryNumberInfos[i_FirstBinaryNumberInfoIndex];
 			io_BinaryNumberInfos[i_FirstBinaryNumberInfoIndex] = io_BinaryNumberInfos[i_SecondBinaryNumberInfoIndex];
 			io_BinaryNumberInfos[i_SecondBinaryNumberInfoIndex] = currentBinaryNumberInfo;
 		}
 
 		private int getLongestBitSequenceLength(BinaryNumberInfo[] i_BinaryNumberInfosSortedByDescendingDecimalValue)
 		{
-			int longestBitSequenceLength;
-			int binaryNumberIndex;
+			int longestBitSequenceLength = 0;
 
-			longestBitSequenceLength = 0;
-
-			for(binaryNumberIndex = 0; binaryNumberIndex < i_BinaryNumberInfosSortedByDescendingDecimalValue.Length; binaryNumberIndex++)
+			for(int binaryNumberIndex = 0;
+				binaryNumberIndex < i_BinaryNumberInfosSortedByDescendingDecimalValue.Length;
+				binaryNumberIndex++)
 			{
 				longestBitSequenceLength = Math.Max(
 					longestBitSequenceLength,
@@ -213,14 +179,11 @@ namespace Ex01_01
 			BinaryNumberInfo[] i_BinaryNumberInfosSortedByDescendingDecimalValue,
 			int i_LongestBitSequenceLength)
 		{
-			string[] binaryRepresentationsWithLongestBitSequence;
-			int longestBitSequenceCount;
-			int binaryNumberIndex;
-			int longestBitSequenceIndex;
+			int longestBitSequenceCount = 0;
 
-			longestBitSequenceCount = 0;
-
-			for(binaryNumberIndex = 0; binaryNumberIndex < i_BinaryNumberInfosSortedByDescendingDecimalValue.Length; binaryNumberIndex++)
+			for(int binaryNumberIndex = 0;
+				binaryNumberIndex < i_BinaryNumberInfosSortedByDescendingDecimalValue.Length;
+				binaryNumberIndex++)
 			{
 				if(i_BinaryNumberInfosSortedByDescendingDecimalValue[binaryNumberIndex].LongestBitSequenceLength ==
 					i_LongestBitSequenceLength)
@@ -229,10 +192,12 @@ namespace Ex01_01
 				}
 			}
 
-			binaryRepresentationsWithLongestBitSequence = new string[longestBitSequenceCount];
-			longestBitSequenceIndex = 0;
+			string[] binaryRepresentationsWithLongestBitSequence = new string[longestBitSequenceCount];
+			int longestBitSequenceIndex = 0;
 
-			for(binaryNumberIndex = 0; binaryNumberIndex < i_BinaryNumberInfosSortedByDescendingDecimalValue.Length; binaryNumberIndex++)
+			for(int binaryNumberIndex = 0;
+				binaryNumberIndex < i_BinaryNumberInfosSortedByDescendingDecimalValue.Length;
+				binaryNumberIndex++)
 			{
 				if(i_BinaryNumberInfosSortedByDescendingDecimalValue[binaryNumberIndex].LongestBitSequenceLength ==
 					i_LongestBitSequenceLength)
@@ -248,12 +213,9 @@ namespace Ex01_01
 
 		private int getTotalOneBits(BinaryNumberInfo[] i_BinaryNumberInfos)
 		{
-			int totalOneBits;
-			int binaryNumberIndex;
+			int totalOneBits = 0;
 
-			totalOneBits = 0;
-
-			for(binaryNumberIndex = 0; binaryNumberIndex < i_BinaryNumberInfos.Length; binaryNumberIndex++)
+			for(int binaryNumberIndex = 0; binaryNumberIndex < i_BinaryNumberInfos.Length; binaryNumberIndex++)
 			{
 				totalOneBits += i_BinaryNumberInfos[binaryNumberIndex].OneBitsCount;
 			}
@@ -263,12 +225,9 @@ namespace Ex01_01
 
 		private BinaryNumberInfo getBinaryNumberWithMostTransitions(BinaryNumberInfo[] i_BinaryNumberInfos)
 		{
-			BinaryNumberInfo binaryNumberWithMostTransitions;
-			int binaryNumberIndex;
+			BinaryNumberInfo binaryNumberWithMostTransitions = i_BinaryNumberInfos[0];
 
-			binaryNumberWithMostTransitions = i_BinaryNumberInfos[0];
-
-			for(binaryNumberIndex = 1; binaryNumberIndex < i_BinaryNumberInfos.Length; binaryNumberIndex++)
+			for(int binaryNumberIndex = 1; binaryNumberIndex < i_BinaryNumberInfos.Length; binaryNumberIndex++)
 			{
 				if(i_BinaryNumberInfos[binaryNumberIndex].TransitionCount > binaryNumberWithMostTransitions.TransitionCount)
 				{
@@ -288,14 +247,11 @@ namespace Ex01_01
 		private string[] getBinaryRepresentationsDivisibleByFourInAscendingDecimalOrder(
 			BinaryNumberInfo[] i_BinaryNumberInfosSortedByDescendingDecimalValue)
 		{
-			string[] binaryRepresentationsDivisibleByFour;
-			int divisibleByFourCount;
-			int binaryNumberIndex;
-			int divisibleByFourIndex;
+			int divisibleByFourCount = 0;
 
-			divisibleByFourCount = 0;
-
-			for(binaryNumberIndex = 0; binaryNumberIndex < i_BinaryNumberInfosSortedByDescendingDecimalValue.Length; binaryNumberIndex++)
+			for(int binaryNumberIndex = 0;
+				binaryNumberIndex < i_BinaryNumberInfosSortedByDescendingDecimalValue.Length;
+				binaryNumberIndex++)
 			{
 				if(i_BinaryNumberInfosSortedByDescendingDecimalValue[binaryNumberIndex].DecimalValue % 4 == 0)
 				{
@@ -303,10 +259,12 @@ namespace Ex01_01
 				}
 			}
 
-			binaryRepresentationsDivisibleByFour = new string[divisibleByFourCount];
-			divisibleByFourIndex = divisibleByFourCount - 1;
+			string[] binaryRepresentationsDivisibleByFour = new string[divisibleByFourCount];
+			int divisibleByFourIndex = divisibleByFourCount - 1;
 
-			for(binaryNumberIndex = 0; binaryNumberIndex < i_BinaryNumberInfosSortedByDescendingDecimalValue.Length; binaryNumberIndex++)
+			for(int binaryNumberIndex = 0;
+				binaryNumberIndex < i_BinaryNumberInfosSortedByDescendingDecimalValue.Length;
+				binaryNumberIndex++)
 			{
 				if(i_BinaryNumberInfosSortedByDescendingDecimalValue[binaryNumberIndex].DecimalValue % 4 == 0)
 				{
@@ -321,20 +279,14 @@ namespace Ex01_01
 
 		private double getAverageDecimalValue(BinaryNumberInfo[] i_BinaryNumberInfos)
 		{
-			double averageDecimalValue;
-			int totalDecimalValue;
-			int binaryNumberIndex;
+			int totalDecimalValue = 0;
 
-			totalDecimalValue = 0;
-
-			for(binaryNumberIndex = 0; binaryNumberIndex < i_BinaryNumberInfos.Length; binaryNumberIndex++)
+			for(int binaryNumberIndex = 0; binaryNumberIndex < i_BinaryNumberInfos.Length; binaryNumberIndex++)
 			{
 				totalDecimalValue += i_BinaryNumberInfos[binaryNumberIndex].DecimalValue;
 			}
 
-			averageDecimalValue = totalDecimalValue / (double)i_BinaryNumberInfos.Length;
-
-			return averageDecimalValue;
+			return totalDecimalValue / (double)i_BinaryNumberInfos.Length;
 		}
 	}
 }

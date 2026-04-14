@@ -6,19 +6,13 @@ namespace Ex01_01
 	{
 		public void Run()
 		{
-			BinarySeriesInputReader binarySeriesInputReader;
-			BinarySeriesAnalyzer binarySeriesAnalyzer;
-			BinarySeriesFormatter binarySeriesFormatter;
-			BinarySeriesReport binarySeriesReport;
-			string[] validBinaryNumbers;
-			string formattedBinarySeriesReport;
+			BinarySeriesInputReader binarySeriesInputReader = new BinarySeriesInputReader();
+			BinarySeriesAnalyzer binarySeriesAnalyzer = new BinarySeriesAnalyzer();
+			BinarySeriesFormatter binarySeriesFormatter = new BinarySeriesFormatter();
+			string[] validBinaryNumbers = binarySeriesInputReader.ReadValidBinaryNumbers();
+			BinarySeriesReport binarySeriesReport = binarySeriesAnalyzer.CreateBinarySeriesReport(validBinaryNumbers);
+			string formattedBinarySeriesReport = binarySeriesFormatter.FormatBinarySeriesReport(binarySeriesReport);
 
-			binarySeriesInputReader = new BinarySeriesInputReader();
-			binarySeriesAnalyzer = new BinarySeriesAnalyzer();
-			binarySeriesFormatter = new BinarySeriesFormatter();
-			validBinaryNumbers = binarySeriesInputReader.ReadValidBinaryNumbers();
-			binarySeriesReport = binarySeriesAnalyzer.CreateBinarySeriesReport(validBinaryNumbers);
-			formattedBinarySeriesReport = binarySeriesFormatter.FormatBinarySeriesReport(binarySeriesReport);
 			Console.WriteLine(formattedBinarySeriesReport);
 		}
 	}

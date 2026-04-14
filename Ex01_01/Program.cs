@@ -4,9 +4,8 @@ namespace Ex01_01
 	{
 		static void Main()
 		{
-			BinarySeriesRunner binarySeriesRunner;
+			BinarySeriesRunner binarySeriesRunner = new BinarySeriesRunner();
 
-			binarySeriesRunner = new BinarySeriesRunner();
 			binarySeriesRunner.Run();
 		}
 	}

@@ -22,6 +22,7 @@ These are the working rules I should treat as binding when helping on this cours
 - Respect parameter prefixes: `i_`, `o_`, `io_`.
 - Respect member prefixes: `m_`, `k_`, `s_`, `r_`, `sr_`.
 - Respect enum prefix `e`.
+- Keep boolean names positive and use `!` for the negative case instead of negative boolean names.
 
 ## Solution Structure Guardrails
 

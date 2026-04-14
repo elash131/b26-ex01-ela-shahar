@@ -23,7 +23,10 @@ Examples:
 - Name them with the prefix `v_`.
 - Use CamelCase after the prefix.
 - Prefer a positive boolean meaning.
-- When you need the negative meaning, pass `!variable` instead of creating a negative boolean literal.
+- Boolean names should read as positive assertions.
+- Good: `v_IsValidInput`, `v_HasCharacters`, `v_ShouldPrintSummary`
+- Bad: `v_IsInvalidInput`, `v_IsEmpty`, `v_HasNoCharacters`
+- When you need the negative meaning, pass `!variable` instead of creating a negative boolean literal or a negative boolean name.
 - Prefer named boolean constants over raw `true` / `false` when passing boolean parameters.
 
 ### Class and struct members
@@ -139,11 +142,16 @@ Example:
 ### Conditions
 
 - Prefer direct boolean assignment.
+- Prefer positive boolean naming and negate with `!` at the usage site when needed.
 
 Good:
 
 ```csharp
 isOldMan = age > 50;
+if(!v_HasCharacters)
+{
+	Console.WriteLine("Input cannot be empty.");
+}
 ```
 
 Bad:
@@ -156,6 +164,11 @@ if (age > 50)
 else
 {
 	isOldMan = false;
+}
+
+if(v_IsEmpty)
+{
+	Console.WriteLine("Input cannot be empty.");
 }
 ```
 

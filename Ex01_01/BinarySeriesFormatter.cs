@@ -6,9 +6,8 @@ namespace Ex01_01
 	{
 		public string FormatBinarySeriesReport(BinarySeriesReport i_BinarySeriesReport)
 		{
-			StringBuilder formattedBinarySeriesReport;
+			StringBuilder formattedBinarySeriesReport = new StringBuilder();
 
-			formattedBinarySeriesReport = new StringBuilder();
 			formattedBinarySeriesReport.AppendLine(createDescendingDecimalNumbersLine(i_BinarySeriesReport.BinaryNumberInfosSortedByDescendingDecimalValue));
 			formattedBinarySeriesReport.AppendLine(string.Format("Average: {0:F2}", i_BinarySeriesReport.AverageDecimalValue));
 			formattedBinarySeriesReport.AppendLine(
@@ -31,13 +30,13 @@ namespace Ex01_01
 
 		private string createDescendingDecimalNumbersLine(BinaryNumberInfo[] i_BinaryNumberInfosSortedByDescendingDecimalValue)
 		{
-			StringBuilder descendingDecimalNumbersLine;
-			int binaryNumberIndex;
+			StringBuilder descendingDecimalNumbersLine = new StringBuilder();
 
-			descendingDecimalNumbersLine = new StringBuilder();
 			descendingDecimalNumbersLine.Append("Decimal numbers in descending order: ");
 
-			for(binaryNumberIndex = 0; binaryNumberIndex < i_BinaryNumberInfosSortedByDescendingDecimalValue.Length; binaryNumberIndex++)
+			for(int binaryNumberIndex = 0;
+				binaryNumberIndex < i_BinaryNumberInfosSortedByDescendingDecimalValue.Length;
+				binaryNumberIndex++)
 			{
 				if(binaryNumberIndex > 0)
 				{
@@ -56,9 +55,8 @@ namespace Ex01_01
 
 		private string createNumbersDivisibleByFourLine(string[] i_BinaryRepresentationsDivisibleByFour)
 		{
-			StringBuilder numbersDivisibleByFourLine;
+			StringBuilder numbersDivisibleByFourLine = new StringBuilder();
 
-			numbersDivisibleByFourLine = new StringBuilder();
 			numbersDivisibleByFourLine.Append(string.Format("Numbers divisible by 4: {0}", i_BinaryRepresentationsDivisibleByFour.Length));
 
 			if(i_BinaryRepresentationsDivisibleByFour.Length > 0)
@@ -73,11 +71,8 @@ namespace Ex01_01
 		private string createCommaSeparatedBinaryRepresentations(string[] i_BinaryRepresentations)
 		{
 			StringBuilder commaSeparatedBinaryRepresentations = new StringBuilder();
-            int binaryRepresentationIndex;
 
-			commaSeparatedBinaryRepresentations = new StringBuilder();
-
-			for(binaryRepresentationIndex = 0; binaryRepresentationIndex < i_BinaryRepresentations.Length; binaryRepresentationIndex++)
+			for(int binaryRepresentationIndex = 0; binaryRepresentationIndex < i_BinaryRepresentations.Length; binaryRepresentationIndex++)
 			{
 				if(binaryRepresentationIndex > 0)
 				{

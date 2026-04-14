@@ -13,8 +13,11 @@ Use it when you want the lecturer coding standards exactly as they appear in the
 - The first letter of each following word is upper-case.
 - The source slide explicitly shows `v_` for local const booleans.
 - In this repository, use `v_` for local booleans too as a conservative convention.
+- Phrase boolean names as positive assertions.
+- Good: `v_IsValidInput`, `v_HasCharacters`, `containsOnlyBinaryDigits`
+- Avoid negative boolean names such as `v_IsInvalidInput`, `v_IsEmpty`, `hasNoCharacters`
 - When passing a boolean parameter, prefer a named boolean variable over raw `true` / `false`.
-- If you need the negative value, prefer sending `!variable`.
+- If you need the negative meaning, prefer `!variable` instead of a negatively named boolean.
 - Class and struct member prefixes:
   - regular member: `m_`
   - const member and local const: `k_`
@@ -63,6 +66,9 @@ Use it when you want the lecturer coding standards exactly as they appear in the
 - Prefer direct boolean assignment:
   - good: `isOldMan = age > 50;`
   - avoid `if / else` that only assign `true` / `false`
+- Prefer positive boolean flow:
+  - good: `if(!v_HasCharacters)`
+  - avoid `if(v_IsEmpty)`
 - Avoid duplicated code inside both `if` and `else`.
 - Move shared logic outside the branch when possible.
 

@@ -13,13 +13,10 @@ namespace Ex01_01
 
 		public string[] ReadValidBinaryNumbers()
 		{
-			string[] validBinaryNumbers;
-			int binaryNumberIndex;
+			string[] validBinaryNumbers = new string[k_NumberOfBinaryNumbers];
 
-			validBinaryNumbers = new string[k_NumberOfBinaryNumbers];
 			Console.WriteLine(k_BatchInputPromptMessage);
-
-			for(binaryNumberIndex = 0; binaryNumberIndex < k_NumberOfBinaryNumbers; binaryNumberIndex++)
+			for(int binaryNumberIndex = 0; binaryNumberIndex < k_NumberOfBinaryNumbers; binaryNumberIndex++)
 			{
 				validBinaryNumbers[binaryNumberIndex] = readValidBinaryNumber();
 			}
@@ -29,13 +26,9 @@ namespace Ex01_01
 
 		private string readValidBinaryNumber()
 		{
-			string binaryNumberFromUser;
-			string validationErrorMessage;
-			bool v_IsBinaryNumberValid;
-
-			binaryNumberFromUser = string.Empty;
-			validationErrorMessage = string.Empty;
-			v_IsBinaryNumberValid = false;
+			string binaryNumberFromUser = string.Empty;
+			string validationErrorMessage = string.Empty;
+			bool v_IsBinaryNumberValid = false;
 
 			while(!v_IsBinaryNumberValid)
 			{
@@ -54,11 +47,9 @@ namespace Ex01_01
 
 		private string getBinaryNumberValidationErrorMessage(string i_BinaryNumber)
 		{
-			string validationErrorMessage;
+			string validationErrorMessage = string.Empty;
 
-			validationErrorMessage = string.Empty;
-
-			if(isBinaryNumberEmpty(i_BinaryNumber))
+			if(!containsAtLeastOneCharacter(i_BinaryNumber))
 			{
 				validationErrorMessage = k_EmptyInputMessage;
 			}
@@ -74,35 +65,24 @@ namespace Ex01_01
 			return validationErrorMessage;
 		}
 
-		private bool isBinaryNumberEmpty(string i_BinaryNumber)
+		private bool containsAtLeastOneCharacter(string i_BinaryNumber)
 		{
-			bool v_IsBinaryNumberEmpty;
-
-			v_IsBinaryNumberEmpty = string.IsNullOrEmpty(i_BinaryNumber);
-
-			return v_IsBinaryNumberEmpty;
+			return !string.IsNullOrEmpty(i_BinaryNumber);
 		}
 
 		private bool isBinaryNumberLengthValid(string i_BinaryNumber)
 		{
-			bool v_IsBinaryNumberLengthValid;
-
-			v_IsBinaryNumberLengthValid = i_BinaryNumber.Length == k_BinaryNumberLength;
-
-			return v_IsBinaryNumberLengthValid;
+			return i_BinaryNumber.Length == k_BinaryNumberLength;
 		}
 
 		private bool containsOnlyBinaryDigits(string i_BinaryNumber)
 		{
-			bool v_ContainsOnlyBinaryDigits;
-			int binaryDigitIndex;
-			char currentCharacter;
+			bool v_ContainsOnlyBinaryDigits = true;
 
-			v_ContainsOnlyBinaryDigits = true;
-
-			for(binaryDigitIndex = 0; binaryDigitIndex < i_BinaryNumber.Length && v_ContainsOnlyBinaryDigits; binaryDigitIndex++)
+			for(int binaryDigitIndex = 0; binaryDigitIndex < i_BinaryNumber.Length && v_ContainsOnlyBinaryDigits; binaryDigitIndex++)
 			{
-				currentCharacter = i_BinaryNumber[binaryDigitIndex];
+				char currentCharacter = i_BinaryNumber[binaryDigitIndex];
+
 				v_ContainsOnlyBinaryDigits = isBinaryDigit(currentCharacter);
 			}
 
@@ -111,11 +91,7 @@ namespace Ex01_01
 
 		private bool isBinaryDigit(char i_Character)
 		{
-			bool v_IsBinaryDigit;
-
-			v_IsBinaryDigit = Char.IsDigit(i_Character) && (i_Character == '0' || i_Character == '1');
-
-			return v_IsBinaryDigit;
+			return Char.IsDigit(i_Character) && (i_Character == '0' || i_Character == '1');
 		}
 	}
 }

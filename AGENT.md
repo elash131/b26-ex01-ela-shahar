@@ -9,9 +9,10 @@ Before writing code, editing code, suggesting architecture changes, or claiming 
 1. `Ex01_Insructions/00_Ex01_Course_Guardrails.md`
 2. `Ex01_Insructions/DN_2026B_Ex01.pdf`
 3. `Professor_Rulebook/Coding_Standards.md`
-4. `Professor_Rulebook/Submission_Rules.md`
-5. `Professor_Rulebook/Visual_Studio_Workflow.md`
-6. The relevant section plan file in `Ex01_Insructions/PLAN_Ex01_0X_*.md`
+4. `Ex01_Insructions/01_Coding_Standards_Source_Notes.md`
+5. `Professor_Rulebook/Submission_Rules.md`
+6. `Professor_Rulebook/Visual_Studio_Workflow.md`
+7. The relevant section plan file in `Ex01_Insructions/PLAN_Ex01_0X_*.md`
 
 If any guidance conflicts, the PDF in `Ex01_Insructions/DN_2026B_Ex01.pdf` wins.
 
@@ -34,13 +35,18 @@ If any guidance conflicts, the PDF in `Ex01_Insructions/DN_2026B_Ex01.pdf` wins.
 - Do not invent formats, labels, or output wording.
 - Do not change required solution, project, or submission naming conventions.
 - Use meaningful names everywhere.
+- Keep a declarations section at the top of methods and start executable statements only after that section.
 - Use tabs for indentation.
 - Always use braces for control-flow bodies.
 - Avoid redundant blank lines and redundant spaces.
+- Prefer direct boolean assignment when a condition only decides `true` or `false`.
 - Prefer one `return` statement per method when practical.
 - Avoid duplicated logic.
 - Validate user input and re-prompt on invalid input.
 - Keep output formatting exactly aligned with the lecturer examples.
+- Follow `Ex01_Insructions/01_Coding_Standards_Source_Notes.md` for the exact coding-style interpretation used in this repository.
+- Use the lecturer EXE as a UX/style clue only. If the EXE and the PDF disagree, the PDF wins.
+- For repeated same-type input, prefer one clear batch prompt instead of repeating the same prompt before every value, unless the PDF explicitly requires repeated prompting.
 
 ## Section-Specific Non-Negotiables
 

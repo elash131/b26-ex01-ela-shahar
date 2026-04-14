@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{ADCC13DC-2B28-4908-B27D-9D99B4CBD416}</ProjectGuid>
+    <ProjectGuid>{B2A76449-847C-4522-8343-C5EF927A64F5}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Ex01_01</RootNamespace>
-    <AssemblyName>Ex01_01</AssemblyName>
+    <RootNamespace>Ex01_02</RootNamespace>
+    <AssemblyName>Ex01_02</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -33,15 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="BinaryNumberInfo.cs" />
-    <Compile Include="BinarySeriesAnalyzer.cs" />
-    <Compile Include="BinarySeriesFormatter.cs" />
-    <Compile Include="BinarySeriesInputReader.cs" />
-    <Compile Include="BinarySeriesReport.cs" />
-    <Compile Include="BinarySeriesRunner.cs" />
+    <Compile Include="LetterTreeBuilder.cs" />
     <Compile Include="Program.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

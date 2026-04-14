@@ -28,19 +28,18 @@ namespace Ex01_01
 		{
 			string binaryNumberFromUser = string.Empty;
 			string validationErrorMessage = string.Empty;
-			bool v_IsBinaryNumberValid = false;
 
-			while(!v_IsBinaryNumberValid)
+			do
 			{
 				binaryNumberFromUser = Console.ReadLine();
 				validationErrorMessage = getBinaryNumberValidationErrorMessage(binaryNumberFromUser);
-				v_IsBinaryNumberValid = validationErrorMessage == string.Empty;
 
-				if(!v_IsBinaryNumberValid)
+				if(validationErrorMessage != string.Empty)
 				{
 					Console.WriteLine(validationErrorMessage);
 				}
 			}
+			while(validationErrorMessage != string.Empty);
 
 			return binaryNumberFromUser;
 		}

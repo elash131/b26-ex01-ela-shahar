@@ -16,6 +16,9 @@ Use it when you want the lecturer coding standards exactly as they appear in the
 - Phrase boolean names as positive assertions.
 - Good: `v_IsValidInput`, `v_HasCharacters`, `containsOnlyBinaryDigits`
 - Avoid negative boolean names such as `v_IsInvalidInput`, `v_IsEmpty`, `hasNoCharacters`
+- When a new local boolean control variable is needed, initialize it to `true`.
+- Good: `bool v_ShouldReadAnotherBinaryNumber = true;`
+- Avoid initializing such a control variable to `false` and then flipping the flow around it.
 - When passing a boolean parameter, prefer a named boolean variable over raw `true` / `false`.
 - If you need the negative meaning, prefer `!variable` instead of a negatively named boolean.
 - Class and struct member prefixes:
@@ -69,6 +72,9 @@ Use it when you want the lecturer coding standards exactly as they appear in the
 - Prefer positive boolean flow:
   - good: `if(!v_HasCharacters)`
   - avoid `if(v_IsEmpty)`
+- Prefer positive boolean initialization:
+  - good: `bool v_ShouldContinue = true;`
+  - avoid `bool v_IsDone = false;`
 - Avoid duplicated code inside both `if` and `else`.
 - Move shared logic outside the branch when possible.
 

@@ -29,6 +29,7 @@ This file summarizes the binding rules that must guide every Ex01 implementation
 - Member prefixes matter: `m_`, `k_`, `s_`, `r_`, `sr_`.
 - Boolean names must be phrased positively, and negative usage should be written with `!`.
 - Prefer `v_HasCharacters` and `!v_HasCharacters` over `v_IsEmpty`.
+- When a new local boolean control variable is introduced, initialize it to `true`.
 - Always use braces for `if`, `else`, loops, and similar statements.
 - Prefer direct boolean assignment when the condition only decides `true` or `false`.
 - Use tabs for indentation, not spaces.

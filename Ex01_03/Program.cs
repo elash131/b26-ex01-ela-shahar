@@ -34,7 +34,7 @@ namespace Ex01_03
 			int treeHeight = 0;
 			string inputFromUser = getHeightInput();
 
-			if(!isNumber(inputFromUser))
+			if (!isNumber(inputFromUser))
 			{
 				printInvalidInputMessage();
 				treeHeight = getTreeHeightFromUser();
@@ -43,7 +43,7 @@ namespace Ex01_03
 			{
 				treeHeight = int.Parse(inputFromUser);
 
-				if(!isTreeHeightInRange(treeHeight))
+				if (!isTreeHeightInRange(treeHeight))
 				{
 					printInvalidInputMessage();
 					treeHeight = getTreeHeightFromUser();
@@ -108,10 +108,9 @@ namespace Ex01_03
 
 		private static void printTopRowsRec(int i_RowsLeft, int i_SpacesBeforeRow, int i_LettersInRow, ref int io_CurrentRowNumber, ref int io_CurrentLetterOffset)
 		{
-			if(i_RowsLeft > 0)
+			if (i_RowsLeft > 0)
 			{
-				Console.Write(io_CurrentRowNumber);
-				Console.Write(' ');
+				printRowNumber(io_CurrentRowNumber);
 				printCharsRec(' ', i_SpacesBeforeRow);
 				printLettersRec(i_LettersInRow, ref io_CurrentLetterOffset, true);
 				Console.WriteLine();
@@ -122,16 +121,15 @@ namespace Ex01_03
 
 		private static void printTrunkRowsRec(int i_RowsLeft, int i_SpacesBeforeTrunk, int i_TrunkLetterOffset, ref int io_CurrentRowNumber)
 		{
-			if(i_RowsLeft > 0)
+			if (i_RowsLeft > 0)
 			{
-				Console.Write(io_CurrentRowNumber);
-				Console.Write(' ');
+				printRowNumber(io_CurrentRowNumber);
 				printCharsRec(' ', i_SpacesBeforeTrunk);
 				Console.Write('|');
 				Console.Write(getLetterByOffset(i_TrunkLetterOffset));
 				Console.Write('|');
 
-				if(i_RowsLeft > 1)
+				if (i_RowsLeft > 1)
 				{
 					Console.WriteLine();
 				}
@@ -141,9 +139,14 @@ namespace Ex01_03
 			}
 		}
 
+		private static void printRowNumber(int i_RowNumber)
+		{
+			Console.Write("{0,2} ", i_RowNumber);
+		}
+
 		private static void printCharsRec(char i_CharToPrint, int i_TimesLeft)
 		{
-			if(i_TimesLeft > 0)
+			if (i_TimesLeft > 0)
 			{
 				Console.Write(i_CharToPrint);
 				printCharsRec(i_CharToPrint, i_TimesLeft - 1);
@@ -152,9 +155,9 @@ namespace Ex01_03
 
 		private static void printLettersRec(int i_LettersLeft, ref int io_CurrentLetterOffset, bool i_IsFirstLetterInRow)
 		{
-			if(i_LettersLeft > 0)
+			if (i_LettersLeft > 0)
 			{
-				if(!i_IsFirstLetterInRow)
+				if (!i_IsFirstLetterInRow)
 				{
 					Console.Write(' ');
 				}

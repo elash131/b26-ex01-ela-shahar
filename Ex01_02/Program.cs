@@ -32,7 +32,7 @@ namespace Ex01_02
 
 		private static void printTreeRowsRec(int i_TopRowsLeft, int i_TrunkRowsLeft, int i_SpacesBeforeTopRow, int i_SpacesBeforeTrunk, int i_LettersInRow, ref int io_CurrentRowNumber, ref int io_CurrentLetterOffset)
 		{
-			if(i_TopRowsLeft > 0)
+			if (i_TopRowsLeft > 0)
 			{
 				Console.Write(io_CurrentRowNumber);
 				Console.Write(' ');
@@ -42,7 +42,7 @@ namespace Ex01_02
 				io_CurrentRowNumber++;
 				printTreeRowsRec(i_TopRowsLeft - 1, i_TrunkRowsLeft, i_SpacesBeforeTopRow - k_SpacesRemovedPerRow, i_SpacesBeforeTrunk, i_LettersInRow + k_LettersAddedPerRow, ref io_CurrentRowNumber, ref io_CurrentLetterOffset);
 			}
-			else if(i_TrunkRowsLeft > 0)
+			else if (i_TrunkRowsLeft > 0)
 			{
 				Console.Write(io_CurrentRowNumber);
 				Console.Write(' ');
@@ -51,7 +51,7 @@ namespace Ex01_02
 				Console.Write(getLetterByOffset(io_CurrentLetterOffset));
 				Console.Write('|');
 
-				if(i_TrunkRowsLeft > 1)
+				if (i_TrunkRowsLeft > 1)
 				{
 					Console.WriteLine();
 				}
@@ -63,7 +63,7 @@ namespace Ex01_02
 
 		private static void printCharsRec(char i_CharToPrint, int i_TimesLeft)
 		{
-			if(i_TimesLeft > 0)
+			if (i_TimesLeft > 0)
 			{
 				Console.Write(i_CharToPrint);
 				printCharsRec(i_CharToPrint, i_TimesLeft - 1);
@@ -72,9 +72,9 @@ namespace Ex01_02
 
 		private static void printLettersRec(int i_LettersLeft, ref int io_CurrentLetterOffset, bool i_IsFirstLetterInRow)
 		{
-			if(i_LettersLeft > 0)
+			if (i_LettersLeft > 0)
 			{
-				if(!i_IsFirstLetterInRow)
+				if (!i_IsFirstLetterInRow)
 				{
 					Console.Write(' ');
 				}

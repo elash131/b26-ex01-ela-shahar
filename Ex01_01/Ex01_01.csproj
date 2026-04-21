@@ -36,12 +36,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BinaryNumberInfo.cs" />
-    <Compile Include="BinarySeriesAnalyzer.cs" />
-    <Compile Include="BinarySeriesFormatter.cs" />
-    <Compile Include="BinarySeriesInputReader.cs" />
-    <Compile Include="BinarySeriesReport.cs" />
-    <Compile Include="BinarySeriesRunner.cs" />
     <Compile Include="Program.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

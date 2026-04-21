@@ -2,7 +2,7 @@ using System;
 
 namespace Ex01_01
 {
-	internal class BinarySeriesInputReader
+	public class BinarySeriesInputReader
 	{
 		private const int k_NumberOfBinaryNumbers = 4;
 		private const int k_BinaryNumberLength = 7;

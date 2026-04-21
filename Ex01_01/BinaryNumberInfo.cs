@@ -1,6 +1,6 @@
 namespace Ex01_01
 {
-	internal class BinaryNumberInfo
+    public class BinaryNumberInfo
 	{
 		private string m_BinaryRepresentation;
 		private int m_DecimalValue;

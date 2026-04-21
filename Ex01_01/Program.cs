@@ -360,9 +360,7 @@ namespace Ex01_01
 			return numbersDivisibleByFourCount;
 		}
 
-		private static string createCommaSeparatedBinaryRepresentationsDivisibleByFourInAscendingDecimalOrder(
-			string[] i_BinaryNumbers,
-			int[] i_DecimalNumbers)
+		private static string createCommaSeparatedBinaryRepresentationsDivisibleByFourInAscendingDecimalOrder(string[] i_BinaryNumbers, int[] i_DecimalNumbers)
 		{
 			string commaSeparatedBinaryRepresentations = string.Empty;
 

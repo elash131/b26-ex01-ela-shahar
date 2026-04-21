@@ -11,3 +11,9 @@ TestResults/
 
 *.cache
 *.pdb
+
+Ex01_ScreenShots.files/
+Ex01_ScreenShots.local-backup*
+Ex01_ScreenShots.local-backup.files/
+~$*.doc
+Professor_Rulebook/DN_2026B_Ex01.pdf

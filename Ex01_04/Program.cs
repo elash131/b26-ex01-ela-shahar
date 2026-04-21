@@ -115,8 +115,7 @@ namespace Ex01_04
 
 		private static bool isNumberDivisibleByFour(string i_Input)
 		{
-			int parsedNumber = 0;
-			bool v_IsNumberDivisibleByFour = int.TryParse(i_Input, out parsedNumber);
+			bool v_IsNumberDivisibleByFour = int.TryParse(i_Input, out int parsedNumber);
 
 			if (v_IsNumberDivisibleByFour)
 			{
@@ -147,8 +146,7 @@ namespace Ex01_04
 
 			for (int characterIndex = 1; characterIndex < i_Input.Length && v_IsInDescendingAlphabeticalOrder; characterIndex++)
 			{
-				v_IsInDescendingAlphabeticalOrder =
-					getLowercaseCharacter(i_Input[characterIndex - 1]) > getLowercaseCharacter(i_Input[characterIndex]);
+				v_IsInDescendingAlphabeticalOrder = getLowercaseCharacter(i_Input[characterIndex - 1]) > getLowercaseCharacter(i_Input[characterIndex]);
 			}
 
 			return v_IsInDescendingAlphabeticalOrder;
@@ -190,8 +188,7 @@ namespace Ex01_04
 
 		private static bool areCharactersEqualIgnoringCase(char i_FirstCharacter, char i_SecondCharacter)
 		{
-			bool v_AreCharactersEqualIgnoringCase =
-				getLowercaseCharacter(i_FirstCharacter) == getLowercaseCharacter(i_SecondCharacter);
+			bool v_AreCharactersEqualIgnoringCase = getLowercaseCharacter(i_FirstCharacter) == getLowercaseCharacter(i_SecondCharacter);
 
 			return v_AreCharactersEqualIgnoringCase;
 		}

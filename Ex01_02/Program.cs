@@ -90,6 +90,9 @@ namespace Ex01_02
 			char letter = (char)(k_FirstLetter + (i_LetterOffset % k_AlphabetLength));
 
 			return letter;
+		public static void Main()
+		{
+			Console.Write(LetterTreeBuilder.BuildTree((int)eTreeMeasurements.FixedTreeHeight));
 		}
 	}
 }
